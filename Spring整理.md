@@ -197,8 +197,6 @@ Spring中没有对SIngleton的bean做任何多线程的封装处理
   <bean class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
   ```
 
-
-
 ## 5种自动装配模式
 
 - no
