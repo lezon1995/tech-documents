@@ -272,12 +272,12 @@ static class Node<K,V> implements Map.Entry<K,V> {
 
 ## 与HashTable的区别
 
-- 与之相比**HashTable**是**线程安全**的，且**不允许key、value是null**。
-- **HashTable默认容量是11**。
-- HashTable是**直接使用key的hashCode(key.hashCode())作为hash值**，不像HashMap内部**使用static final int hash(Object key)扰动函数对key的hashCode进行扰动后作为hash值**。
-- **HashTable取哈希桶下标是直接用模运算%**.（因为其默认容量也不是2的n次方。所以也无法用位运算替代模运算）
-- 扩容时，**新容量是原来的2倍+1**。int newCapacity = (oldCapacity << 1) + 1;
-- Hashtable是**Dictionary的子类**同时也**实现了Map接口**，HashMap是Map接口的一个实现类；
+- 与之相比**`HashTable`**是**线程安全**的，且**不允许key、value是null**。
+- **`HashTable`默认容量是11**。
+- `HashTable`是**直接使用`key`的`hashCode`(key.hashCode())作为`hash`值**，不像`HashMap`内部**使用`static final int hash(Object key)`扰动函数对key的hashCode进行扰动后作为hash值**。
+- `HashTable`取哈希桶下标是直接用`模运算%`.（因为其`默认容量`也不是`2的n次方`。所以也无法用位运算替代模运算）
+- 扩容时，**新容量是原来的2倍+1**。`int newCapacity = (oldCapacity << 1) + 1`;
+- `Hashtable`是`Dictionary`的子类同时也实现了Map接口，`HashMap`是`Map`接口的一个实现类；
 
 
 
@@ -290,4 +290,4 @@ static class Node<K,V> implements Map.Entry<K,V> {
 * 因为扩容是容量翻倍，所以原链表上的每个节点，现在可能存放在原来的下标，即low位， 或者扩容后的下标，即high位。 high位= low位+原哈希桶容量 
 * 利用哈希值 与运算 旧的容量 ，if ((e.hash & oldCap) == 0),可以得到哈希值去模后，是大于等于oldCap还是小于oldCap，等于0代表小于oldCap，应该存放在低位，否则存放在高位。这里又是一个利用位运算 代替常规运算的高效点 
 * 如果追加节点后，链表数量>=8，则转化为红黑树 
-* 插入节点操作时，有一些空实现的函数，用作LinkedHashMap重写使用。
+* 插入节点操作时，有一些空实现的函数，用作`LinkedHashMap`重写使用。

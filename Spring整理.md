@@ -595,3 +595,4 @@ applicationContext.publishEvent(customEvent);
 
   > spring中在实例化对象的时候用到Strategy模式
   > 在`SimpleInstantiationStrategy`中有如下代码说明了策略模式的使用情况
+
